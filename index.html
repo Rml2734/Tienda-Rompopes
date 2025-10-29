@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rompopes y Cremas Don Nino</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <!-- Para CSS -->
+    <link rel="stylesheet" href="/src/style.css" />
+
+    <link rel="icon" type="image/svg+xml" href="/images/tienda.ico" />
+    <!-- "/vite.svg" -->
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <a href="#" class="logo"><i class="bx bx-home"></i>Don Nino</a>
+
+      <ul class="navlist">
+        <li><a href="#home" class="active">Inicio</a></li>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#shop">Nuestra Tienda</a></li>
+        <li><a href="#reviews">Nuestros Clientes</a></li>
+        <li><a href="#contact">Contactanos</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="/src/tracking.html" target="_blank"
+          ><i class="bx bx-search"></i
+        ></a>
+        <a href="#" id="cart-icon"><i class="bx bx-cart"></i></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
+
+    <!--Home-->
+    <section class="home" id="home">
+      <div class="home-text">
+        <h1>
+          Conoce, <span>Bebe y</span> <br />
+          Disfruta el Verdadero <br />
+          Sabor
+        </h1>
+        <!--
+        <a href="#shop" class="btn"
+          >Explorar Menu<i class="bx bxs-right-arrow"></i
+        ></a>
+        <a href="#shop" class="btn2">Ordena Ahora</a>
+        -->
+      </div>
+
+      <div class="home-img">
+        <img src="/images/rompope1.jpg" alt="Rompope" />
+      </div>
+    </section>
+
+    <!--CONTAINER-->
+    <!--
+    <section class="container">
+      <div class="container-box">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png"
+          alt="Clock Icon"
+        />
+        <h3>L - S 08:00 am - 04:00pm</h3>
+        <a href="#">Horario</a>
+      </div>
+
+      <div class="container-box">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+          alt="Location Icon"
+        />
+        <h3>Curridabat, San Jose</h3>
+        <a href="#">Direccion</a>
+      </div>
+
+      <div class="container-box">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/159/159832.png"
+          alt="Phone Icon"
+        />
+        <h3>(506) 0000-0000</h3>
+        <a href="#">Llamanos</a>
+      </div>
+    </section>
+    -->
+
+    <!--ABOUT US-->
+    <section class="about" id="about">
+
+       <!-- Título fuera del grid, centrado -->
+      <div class="middle-text">
+        <h4>Nuestra Historia</h4>
+        <h2>Un sabor para compartir</h2>
+      </div>
+     
+
+       <div class="about-content">
+      <div class="about-img">
+        <img src="/images/rompope3.jpg" alt="Rompope Historia" />
+      </div>
+
+      <div class="about-text">
+        <h2>
+          Disfrutar de la Vida comienza <br />
+          disfrutando de un buen Rompope
+        </h2>
+        <p>
+          A lo largo de su historia como bebida tradicional, los principales
+          usos del rompope incluyen disfrutarlo como un delicioso acompañamiento
+          en celebraciones, combinarlo con postres y panes dulces, ser una
+          opción popular en las festividades navideñas, o disfrutarlo en
+          cualquier epoca del año y proporcionar una elección reconfortante para
+          momentos especiales en familia o amigos.<br /><br />
+          Debido a su popularidad y versatilidad, el rompope se ha convertido en
+          la bebida favorita de muchas personas alrededor del mundo, ofreciendo
+          una experiencia deliciosa y satisfactoria con cada sorbo.
+        </p>
+        <!--
+        <a href="#" class="btn"
+          >Explorar Historia<i class="bx bxs-right-arrow"></i
+        ></a>
+        -->
+      </div>
+      </div>
+    </section>
+
+    <!--OUR SHOP-->
+    <section class="shop" id="shop">
+      <div class="middle-text">
+        <h4>Nuestra Tienda</h4>
+        <h2>Revisa Los Productos Populares</h2>
+      </div>
+
+      <div class="shop-content">
+        <div class="row">
+          <div class="imagen-producto">
+            <img
+              src="/images/RompopeTradicional.jpg"
+              alt="Rompope tradicional"
+            />
+          </div>
+          <h3>Rompope Tradicional</h3>
+          <p>Descripcion del Producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$12.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Rompope Tradicional"
+                data-price="12.99"
+                data-img="/images/RompopeTradicional.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+            <div class="top-icon">
+              <a href="#"><i class="bx bx-heart"></i></a>
+            </div>
+            -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/CremaDeHigos.jpg" alt="Crema de higos" />
+          </div>
+          <h3>Crema de Higos</h3>
+          <p>Descripcion del producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$15.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Crema de Higos"
+                data-price="15.99"
+                data-img="/images/CremaDeHigos.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/CremaDeCaramelo.jpg" alt="Crema de Caramelo" />
+          </div>
+          <h3>Crema de Caramelo</h3>
+          <p>Descripcion del producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$18.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Crema de Caramelo"
+                data-price="18.99"
+                data-img="/images/CremaDeCaramelo.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/rompopemoka.jpg" alt="Crema de moka" />
+          </div>
+
+          <h3>Crema de Moka</h3>
+          <p>Descripcion del producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$14.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Crema de Moka"
+                data-price="14.99"
+                data-img="/images/rompopemoka.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/rompopemoka.jpg" alt="Crema de chocolate" />
+          </div>
+          <h3>Crema de Chocolate</h3>
+          <p>Descripcion del producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$14.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Crema de Chocolate"
+                data-price="14.99"
+                data-img="/images/rompopemoka.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/cremademani.jpg" alt="Crema de Mani" />
+          </div>
+          <h3>Crema de Mani</h3>
+          <p>Descripcion del producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$14.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Crema de mani"
+                data-price="14.99"
+                data-img="/images/cremademani.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/RompopeDeCoco.jpg" alt="Rompope de coco" />
+          </div>
+          <h3>Rompope de Coco</h3>
+          <p>Descripcion del Producto</p>
+          <div class="in-text">
+            <div class="price">
+              <h6>$12.99</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Rompope de Coco"
+                data-price="12.99"
+                data-img="/images/RompopeDeCoco.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <!--
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+
+        <div class="row">
+          <div class="imagen-producto">
+            <img src="/images/rompopemoka.jpg" alt="Rompope" />
+          </div>
+          <h3>Nuevo Sabor proximamente</h3>
+          <p>Proximamente</p>
+          <!--
+          <div class="in-text">
+            <div class="price">
+              <h6>$00.00</h6>
+            </div>
+            <div class="s-btn">
+              <a
+                href="#"
+                class="add-to-cart"
+                data-name="Rompope Tradicional"
+                data-price="12.99"
+                data-img="/images/rompopemoka.jpg"
+                >Comprar</a
+              >
+            </div>
+          </div>
+          
+
+          <div class="quantity">
+            <button class="minus">-</button>
+            <span>1</span>
+            <button class="plus">+</button>
+          </div>
+          <div class="top-icon">
+            <a href="#"><i class="bx bx-heart"></i></a>
+          </div>
+          -->
+        </div>
+      </div>
+
+      <!--
+      <div class="row-btn">
+        <a href="#" class="btn"
+          >Todos los Productos<i class="bx bxs-right-arrow"></i
+        ></a>
+      </div>
+      -->
+    </section>
+
+    <!--REVIEWS-->
+    <section class="reviews" id="reviews">
+      <div class="middle-text">
+        <h4>Nuestros Clientes</h4>
+        <h2>Opiniones de los clientes acerca de nuestros rompopes</h2>
+      </div>
+
+      <!-- Slider -->
+      <div class="review-slider">
+        <div class="slider-container">
+          <div class="reviews-content" id="reviews-content">
+            <!-- Las reseñas se agregarán aquí dinámicamente -->
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button id="prev-review"><i class="bx bx-chevron-left"></i></button>
+          <button id="next-review"><i class="bx bx-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Formulario de reseñas -->
+      <div class="review-form">
+        <h3>Deja tu reseña</h3>
+        <form id="addReviewForm">
+          <input
+            type="text"
+            id="reviewerName"
+            placeholder="Tu nombre"
+            required
+          />
+          <textarea
+            id="reviewText"
+            placeholder="Escribe tu reseña..."
+            required
+          ></textarea>
+
+          <div class="star-rating">
+            <i class="bx bx-star" data-value="1"></i>
+            <i class="bx bx-star" data-value="2"></i>
+            <i class="bx bx-star" data-value="3"></i>
+            <i class="bx bx-star" data-value="4"></i>
+            <i class="bx bx-star" data-value="5"></i>
+          </div>
+
+          <button type="submit" class="btn">Enviar Reseña</button>
+        </form>
+      </div>
+    </section>
+
+    <!--CONTACT-->
+    <!--
+    <section class="contact" id="contact">
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2>Contactanos</h2>
+          <p>
+            Estamos aqui para servirte el mejor rompope. Contactanos para
+            pedidos, catering o cualquier pregunta o duda que puedas tener.
+          </p>
+          <div class="social">
+            <a href="#" class="clr"><i class="bx bxl-instagram-alt"></i></a>
+            <a href="https://www.facebook.com/rompopeycremasdonnino/photos"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Envianos un mensaje</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                name="nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                placeholder="Tu Email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                placeholder="Tu Mensaje"
+                name="mensaje"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">
+              Enviar Mensaje <i class="bx bxs-right-arrow"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="details">
+          <div class="main-d">
+            <a href="#"
+              ><i class="bx bxs-location-plus"></i>Curridabat, San Jose</a
+            >
+          </div>
+          <div class="main-d">
+            <a href="#"><i class="bx bx-mobile-alt"></i>(506) 0000-0000</a>
+          </div>
+          <div class="main-d">
+            <a href="#"
+              ><i class="bx bx-time"></i>Abierto: 08:00 am - 04:00 pm</a
+            >
+          </div>
+          <div class="main-d">
+            <a href="#"><i class="bx bx-bell"></i>Subscribirse al boletin</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+    <!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-content">
+    <!-- Columna 1: Logo y descripción -->
+    <div class="footer-column">
+      <a href="#" class="logo footer-logo"><i class="bx bx-home"></i>Don Nino</a>
+      <p>Disfruta del verdadero sabor del rompope tradicional. Elaborado con los mejores ingredientes y recetas familiares que perduran generación tras generación.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/rompopeycremasdonnino/photos" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="#" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+        <a href="#" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Columna 2: FORMULARIO DE CONTACTO (reemplaza enlaces rápidos) -->
+    <div class="footer-column">
+      <h4>Envíanos un Mensaje</h4>
+      <form id="contactForm" class="footer-contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Tu nombre" name="nombre" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Tu Email" name="email" required />
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Tu Mensaje" name="mensaje" required></textarea>
+        </div>
+        <button type="submit" class="btn">
+          Enviar Mensaje <i class="bx bxs-right-arrow"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Columna 3: Información de contacto -->
+    <div class="footer-column">
+      <h4>Información de Contacto</h4>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="bx bxs-map"></i>
+          <span>Curridabat, San José, Costa Rica</span>
+        </div>
+        <div class="contact-item">
+          <i class="bx bxs-phone"></i>
+          <span>(506) 0000-0000</span>
+        </div>
+        <div class="contact-item">
+          <i class="bx bxs-time"></i>
+          <span>Lun - Sab: 8:00 AM - 4:00 PM</span>
+        </div>
+        <div class="contact-item">
+          <i class="bx bxs-envelope"></i>
+          <span>info@donnino.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna 4: Boletín informativo -->
+    <div class="footer-column">
+      <h4>Boletín Informativo</h4>
+      <p>Suscríbete para recibir nuevas recetas, promociones y eventos especiales.</p>
+      <form class="newsletter-form">
+        <div class="input-group">
+          <input type="email" placeholder="Tu correo electrónico" required>
+          <button type="submit">
+            <i class="bx bx-send"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Línea divisoria -->
+  <div class="footer-divider"></div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <div class="copyright">
+      <p>&copy; 2024 Don Nino Rompopes y Cremas. Todos los derechos reservados.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Términos de Servicio</a>
+    </div>
+  </div>
+</footer>
+
+    <!--SCROLL-->
+    <a href="#" class="scroll">
+      <i class="bx bx-up-arrow-alt"></i>
+    </a>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-header">
+        <h2>Tus compras</h2>
+        <button class="close-cart" id="close-cart">
+          <i class="bx bx-x"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Cart items will be added here dynamically -->
+        <p class="empty-cart-message">Su carrito esta vacio</p>
+      </div>
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="checkout-btn">Proceder al pago</button>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- Para JS -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Pedido - Rompopes Don Nino</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="/src/tracking.css">
+</head>
+<body>
+    <div class="tracking-container">
+        <header>
+            <h1><i class='bx bx-package'></i> Seguimiento de Pedido</h1>
+            <a href="/">Volver a la Tienda</a>
+        </header>
+
+        <div class="tracking-form">
+            <h2>Consulta el estado de tu pedido</h2>
+            <p>Ingresa tu número de pedido y email para ver el estado actual</p>
+            
+            <form id="tracking-form">
+                <div class="form-group">
+                    <label for="order-id">Número de Pedido</label>
+                    <input type="text" id="order-id" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <button type="submit">Consultar</button>
+            </form>
+        </div>
+
+        <div id="order-details" class="order-details" style="display: none;">
+            <h2>Detalles del Pedido #<span id="order-number"></span></h2>
+            
+            <div class="status-timeline">
+                <div class="timeline-step pending active">
+                    <div class="timeline-icon"><i class='bx bx-time'></i></div>
+                    <div class="timeline-label">Pendiente</div>
+                </div>
+                <div class="timeline-step processing">
+                    <div class="timeline-icon"><i class='bx bx-cog'></i></div>
+                    <div class="timeline-label">Procesando</div>
+                </div>
+                <div class="timeline-step shipped">
+                    <div class="timeline-icon"><i class='bx bx-truck'></i></div>
+                    <div class="timeline-label">Enviado</div>
+                </div>
+                <div class="timeline-step delivered">
+                    <div class="timeline-icon"><i class='bx bx-check-circle'></i></div>
+                    <div class="timeline-label">Entregado</div>
+                </div>
+            </div>
+            
+            <div class="order-info">
+                <div class="info-card">
+                    <h3>Información del Pedido</h3>
+                    <p><strong>Fecha:</strong> <span id="order-date"></span></p>
+                    <p><strong>Total:</strong> <span id="order-total"></span></p>
+                    <p><strong>Método de Pago:</strong> <span id="order-payment"></span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Información de Envío</h3>
+                    <p><strong>Nombre:</strong> <span id="customer-name"></span></p>
+                    <p><strong>Dirección:</strong> <span id="customer-address"></span></p>
+                    <p><strong>Ciudad:</strong> <span id="customer-city"></span></p>
+                    <p><strong>Teléfono:</strong> <span id="customer-phone"></span></p>
+                </div>
+            </div>
+            
+            <div class="order-products">
+                <h3>Productos</h3>
+                <table id="products-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los productos se cargarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/src/tracking.js"></script>
+</body>
+</html>
