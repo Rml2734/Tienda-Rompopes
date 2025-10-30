@@ -5,13 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build || npm rebuild rollup",
+    "preview": "vite preview",
+    "start": "vite preview --port 3000"
   },
   "devDependencies": {
+    "rollup": "3.29.4",
+    "serve": "^14.2.5",
     "vite": "^7.1.2"
   },
   "dependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.52.5",
     "@stripe/stripe-js": "^7.9.0"
+  },
+  "engines": {
+    "node": "20.19.0"
   }
 }
