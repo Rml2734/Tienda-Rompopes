@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -12,5 +11,10 @@ export default defineConfig({
   },
   server: {
     open: '/'
+  },
+  // --- ¡NUEVA CONFIGURACIÓN AQUÍ! ---
+  preview: {
+    // Permite que Railway acceda al servidor preview de Vite
+    allowedHosts: ['tienda-rompopes-production.up.railway.app']
   }
 });
