@@ -7,7 +7,7 @@
     "dev": "vite",
   "build": "vite build", 
   "preview": "vite preview", 
-  "start": "vite preview --port 3000 --no-open"
+  "start": "vite preview --port 8080 --no-open"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
