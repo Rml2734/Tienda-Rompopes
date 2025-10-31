@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cross-env ROLLUP_DISABLE_NATIVE=1 vite",
-    "build": "cross-env ROLLUP_DISABLE_NATIVE=1 vite build", 
-    "preview": "vite preview", 
-    "start": "vite preview --port 3000"
+    "dev": "vite",
+  "build": "vite build", 
+  "preview": "vite preview", 
+  "start": "vite preview --port 3000"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
