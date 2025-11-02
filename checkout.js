@@ -9,10 +9,15 @@ const BACKEND_URL = IS_LOCAL
     ? 'http://localhost:3001' // Para desarrollo
     : 'https://tienda-rompopes-backend-production.up.railway.app'; // Para producción en Railway
 
+/*
 // 💡 Nueva variable: Define la ruta de tracking según el entorno
 const TRACKING_PATH = IS_LOCAL
     ? './tracking.html'  // Ruta en desarrollo (funciona en localhost) /src/tracking.html
     : '/tracking.html';     // Ruta en producción (funciona en Railway)
+*/
+
+// 💡 Simplificar la ruta de Tracking
+const TRACKING_PATH = './tracking.html'; // Ruta simple y universal
 
 document.addEventListener('DOMContentLoaded', async function() {
     // Cargar Stripe con tu clave pública
