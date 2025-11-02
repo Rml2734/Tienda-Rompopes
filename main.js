@@ -455,7 +455,7 @@ const CHECKOUT_PATH = IS_LOCAL
     ? '/src/checkout.html'  // Ruta en desarrollo '/src/checkout.html'
     : '/checkout.html';     // Ruta en producción
 */
-const CHECKOUT_PATH = './checkout.html';
+const CHECKOUT_PATH = '/checkout.html';
 //===========================
 function redirectToCheckout() {
     if (cartItemsData.length === 0) {
