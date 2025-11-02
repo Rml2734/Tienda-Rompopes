@@ -451,7 +451,7 @@ function setupContactFormFooter() {
 //===========================
 // Define la ruta de checkout según el entorno
 const CHECKOUT_PATH = IS_LOCAL
-    ? '/src/checkout.html'  // Ruta en desarrollo
+    ? '/src/checkout.html'  // Ruta en desarrollo '/src/checkout.html'
     : '/checkout.html';     // Ruta en producción
 //===========================
 function redirectToCheckout() {

@@ -11,7 +11,7 @@ const BACKEND_URL = IS_LOCAL
 
 // 💡 Nueva variable: Define la ruta de tracking según el entorno
 const TRACKING_PATH = IS_LOCAL
-    ? '/src/tracking.html'  // Ruta en desarrollo (funciona en localhost)
+    ? './tracking.html'  // Ruta en desarrollo (funciona en localhost) /src/tracking.html
     : '/tracking.html';     // Ruta en producción (funciona en Railway)
 
 document.addEventListener('DOMContentLoaded', async function() {
