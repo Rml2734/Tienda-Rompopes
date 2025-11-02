@@ -1,9 +1,13 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-// Usar una variable global para la URL del backend.
-// Deberás definir esta variable en un archivo de configuración
-// o en tu archivo HTML principal.
-const BACKEND_URL = 'http://localhost:3001';
+// **¡SOLUCIÓN DE ENTORNO AUTOMÁTICA!**
+// Si el frontend está en localhost, usa localhost.
+// Si el frontend está en Railway, usa la URL de producción de Railway.
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+const BACKEND_URL = IS_LOCAL
+    ? 'http://localhost:3001' // Para desarrollo
+    : 'https://tienda-rompopes-backend-production.up.railway.app'; // Para producción en Railway
 
 document.addEventListener('DOMContentLoaded', async function() {
     // Cargar Stripe con tu clave pública
