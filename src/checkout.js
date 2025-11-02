@@ -9,6 +9,11 @@ const BACKEND_URL = IS_LOCAL
     ? 'http://localhost:3001' // Para desarrollo
     : 'https://tienda-rompopes-backend-production.up.railway.app'; // Para producción en Railway
 
+// 💡 Nueva variable: Define la ruta de tracking según el entorno
+const TRACKING_PATH = IS_LOCAL
+    ? '/src/tracking.html'  // Ruta en desarrollo (funciona en localhost)
+    : '/tracking.html';     // Ruta en producción (funciona en Railway)
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Cargar Stripe con tu clave pública
     // Reemplaza 'TU_CLAVE_PUBLICA_DE_STRIPE' con la clave que se muestra en la captura de pantalla (la que empieza con 'pk_test_...')
@@ -175,12 +180,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                         <p>Tu pedido ha sido procesado correctamente.</p>
                         <p>El número de tu pedido es: <strong>${result.order.id}</strong></p>
                         <p>Recibirás un correo electrónico de confirmación en breve.</p>
-                        <a href="/src/tracking.html?orderId=${result.order.id}" class="tracking-link">
+                        <a href="${TRACKING_PATH}?orderId=${result.order.id}" class="tracking-link">
                             Seguir mi pedido <i class='bx bx-right-arrow-alt'></i>
                         </a>
                         <a href="/" class="home-link">Volver a la tienda</a>
                     </div>
-                `;
+                `;  // en la linea 178 agregar esto para uso local <a href="/src/tracking.html?orderId=${result.order.id}" class="tracking-link">
 
                 localStorage.removeItem('cartItems');
             } else {

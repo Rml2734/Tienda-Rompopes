@@ -195,7 +195,14 @@ const prevReview = document.querySelector("#prev-review");
 const nextReview = document.querySelector("#next-review");
 let currentIndex = 0;
 let selectedRating = 0;
-const backendUrl = 'http://localhost:3001';
+//const backendUrl = 'http://localhost:3001';
+
+// 💡 ¡CAMBIO AQUÍ! Definición de la URL del Backend según el entorno
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+const backendUrl = IS_LOCAL
+    ? 'http://localhost:3001'
+    : 'https://tienda-rompopes-backend-production.up.railway.app';
 
 // Función para obtener las reseñas del backend
 // Variable para saber cuántas reseñas hay en el conjunto original
@@ -442,13 +449,18 @@ function setupContactFormFooter() {
     });
 }
 //===========================
+// Define la ruta de checkout según el entorno
+const CHECKOUT_PATH = IS_LOCAL
+    ? '/src/checkout.html'  // Ruta en desarrollo
+    : '/checkout.html';     // Ruta en producción
 //===========================
 function redirectToCheckout() {
     if (cartItemsData.length === 0) {
         alert('Tu carrito está vacío. Agrega productos antes de proceder al pago.');
         return;
     }
-    window.location.href = '/src/checkout.html';
+    window.location.href = CHECKOUT_PATH;
+    //window.location.href = '/src/checkout.html';
 }
 
 const checkoutBtn = document.querySelector('.checkout-btn');

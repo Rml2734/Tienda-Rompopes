@@ -1,4 +1,10 @@
 // tracking.js
+
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const BACKEND_URL = IS_LOCAL
+    ? 'http://localhost:3001'
+    : 'https://tienda-rompopes-backend-production.up.railway.app'; // Cambia esta URL si es diferente
+
 document.addEventListener('DOMContentLoaded', function() {
     const trackingForm = document.getElementById('tracking-form');
     const orderDetails = document.getElementById('order-details');
@@ -9,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const orderId = document.getElementById('order-id').value;
         const email = document.getElementById('email').value;
         
-        const url = `http://localhost:3001/api/orders/${orderId}`;
+        //const url = `http://localhost:3001/api/orders/${orderId}`;
+        const url = `${BACKEND_URL}/api/orders/${orderId}`;
         console.log('Realizando solicitud a:', url); // <-- Añade esta línea
         
         fetch(url)
