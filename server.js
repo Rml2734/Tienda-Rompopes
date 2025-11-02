@@ -30,7 +30,7 @@ const port = process.env.PORT || 3000;
 // Sirve los archivos estáticos generados por Vite
 app.use(express.static(path.join(__dirname, "dist")));
 
-// Configuración específica para cada ruta
+// ✅ RUTAS ESPECÍFICAS PARA CADA PÁGINA
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
