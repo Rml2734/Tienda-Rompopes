@@ -455,7 +455,7 @@ const CHECKOUT_PATH = IS_LOCAL
     ? '/src/checkout.html'  // Ruta en desarrollo '/src/checkout.html'
     : '/checkout.html';     // Ruta en producción
 */
-const CHECKOUT_PATH = '/checkout.html';
+const CHECKOUT_PATH = IS_LOCAL ? './checkout.html' : '/checkout';
 //===========================
 function redirectToCheckout() {
     if (cartItemsData.length === 0) {
@@ -627,6 +627,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById("addReviewForm").addEventListener("submit", addNewReviewFromForm);
     setupStarRatingForm();
+
+    // ✅ AGREGAR ESTO - Manejo del ícono de tracking (lupa)
+    const trackingIcon = document.getElementById('tracking-icon');
+    if (trackingIcon) {
+        trackingIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            const trackingPath = IS_LOCAL ? './tracking.html' : '/tracking';
+            window.location.href = trackingPath;
+        });
+    }
     
     setInterval(nextSlide, 5000);
     
