@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         
         const url = `http://localhost:3001/api/orders/${orderId}`;
-        console.log('Realizando solicitud a:', url); // <-- Añade esta línea
+        console.log('Realizando solicitud a:', url); 
         
         fetch(url)
             .then(response => {
