@@ -268,7 +268,6 @@ function prevSlide() {
     }
 }
 
-
 // Actualiza la vista del carrusel.
 function updateCarousel() {
     if (reviewsContent.children.length === 0) return;
@@ -389,11 +388,6 @@ function setupStarRatingForm() {
     });
 }
 
-
-// ==========================
-// Contact form submission
-// ==========================
-//const backendUrl = 'http://localhost:3001'; // Ya lo tienes, solo asegúrate de que esté disponible aquí
 
 // ==========================
 // Formulario de Contacto en Footer

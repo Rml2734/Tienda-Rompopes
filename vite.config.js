@@ -5,7 +5,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './index.html',
-        checkout: './src/checkout.html'
+        checkout: './src/checkout.html',
+        tracking: './src/tracking.html'
       }
     }
   },
