@@ -173,7 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const orderDate = new Date(order.created_at);
         document.getElementById('order-date').textContent = orderDate.toLocaleDateString();
         
-        document.getElementById('order-total').textContent = `$${order.total.toFixed(2)}`;
+        // ✅ CORRECCIÓN DE TOTAL
+        document.getElementById('order-total').textContent = `$${parseFloat(order.total).toFixed(2)}`;
         document.getElementById('order-payment').textContent = order.payment_method === 'credit-card' ? 'Tarjeta de Crédito' : 'Pago contra Entrega';
         
         // Actualizar información del cliente
@@ -186,14 +187,15 @@ document.addEventListener('DOMContentLoaded', function() {
         productsTable.innerHTML = '';
         
         order.items.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>$${parseFloat(item.price).toFixed(2)}</td>
-                <td>${item.quantity}</td>
-                <td>$${(parseFloat(item.price) * item.quantity).toFixed(2)}</td>
-            `;
-            productsTable.appendChild(row);
+        // ✅ CORRECCIÓN DE PRECIO Y CÁLCULO
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${parseFloat(item.price).toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>$${(parseFloat(item.price) * item.quantity).toFixed(2)}</td>
+        `;
+        productsTable.appendChild(row);
         });
         
         // Actualizar línea de tiempo de estado
