@@ -111,6 +111,7 @@ const BACKEND_URL = IS_LOCAL
     : 'https://tienda-rompopes-backend-production.up.railway.app'; // Para producción en Railway
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Para resolver el TypeError, revisa si falta el elemento con ID 'order-details'
     const trackingForm = document.getElementById('tracking-form');
     const orderDetails = document.getElementById('order-details');
     const orderIdInput = document.getElementById('order-id');
@@ -121,8 +122,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (initialOrderId) {
         orderIdInput.value = initialOrderId;
+        // El email es opcional aquí, solo necesitamos el ID para la búsqueda inicial
         searchOrder(initialOrderId, ''); 
     }
+
+    // Asegúrate de que todos los elementos existan antes de agregar listeners
+    if (!trackingForm || !orderIdInput) {
+        console.error('Elementos críticos del formulario (tracking-form, order-id) no encontrados.');
+        return; // Detener la ejecución si no se encuentran elementos clave
+    }
+
 
     trackingForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -140,14 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función principal de búsqueda
     function searchOrder(orderId, email) {
-        // ✅ USO DE BACKEND_URL CORREGIDO
         const url = `${BACKEND_URL}/api/orders/${orderId}`;
         console.log('Realizando solicitud a:', url); 
         
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Pedido no encontrado. Verifica el número de pedido.');
+                    throw new Error('Pedido no encontrado. Verifica el número de pedido y el email.');
                 }
                 return response.json();
             })
@@ -160,49 +168,72 @@ document.addEventListener('DOMContentLoaded', function() {
                 displayOrderDetails(order);
             })
             .catch(error => {
-                 console.error('Error en la solicitud:', error); 
-                 orderDetails.style.display = 'none';
-                 alert(error.message);
+                console.error('Error en la solicitud:', error); 
+                // Asegúrate de que orderDetails exista antes de intentar acceder a style
+                if (orderDetails) {
+                    orderDetails.style.display = 'none';
+                }
+                alert(error.message); // Manteniendo el alert para evitar más cambios
             });
     }
     
+    // El punto donde ocurre el error de 'null'
     function displayOrderDetails(order) {
-        // Actualizar información general
+        // --- Actualizar información general ---
+        // Revisar si estos IDs existen en tracking.html
         document.getElementById('order-number').textContent = order.id;
         
         const orderDate = new Date(order.created_at);
         document.getElementById('order-date').textContent = orderDate.toLocaleDateString();
         
-        // ✅ CORRECCIÓN DE TOTAL
         document.getElementById('order-total').textContent = `$${parseFloat(order.total).toFixed(2)}`;
         document.getElementById('order-payment').textContent = order.payment_method === 'credit-card' ? 'Tarjeta de Crédito' : 'Pago contra Entrega';
         
-        // Actualizar información del cliente
+        // --- Actualizar información del cliente ---
+        // Revisar si estos IDs existen en tracking.html
         document.getElementById('customer-name').textContent = order.customer_name;
-        document.getElementById('customer-address').textContent = `${order.customer_address}, ${order.customer_city}, CP ${order.customer_postal_code}`;
+
+        // ✅ CORRECCIÓN DE UNIFICACIÓN: Usamos solo el ID 'customer-address' para toda la dirección.
+        // Esto elimina la necesidad de IDs separados para Ciudad o CP.
+        const fullAddress = `${order.customer_address}, ${order.customer_city}, CP ${order.customer_postal_code}`;
+        document.getElementById('customer-address').textContent = fullAddress;
+        
+        // Si tienes el ID 'customer-city' en tu HTML, lo llenamos, si no, se ignora.
+        const customerCityElement = document.getElementById('customer-city');
+        if (customerCityElement) {
+             // Solo asignamos la ciudad si el elemento existe en el HTML
+             customerCityElement.textContent = order.customer_city;
+        }
+
         document.getElementById('customer-phone').textContent = order.customer_phone || 'No proporcionado';
         
-        // Actualizar productos
-        const productsTable = document.getElementById('products-table').querySelector('tbody');
-        productsTable.innerHTML = '';
+        // --- Actualizar productos ---
+        const productsTable = document.getElementById('products-table')?.querySelector('tbody');
+
+        if (productsTable) {
+            productsTable.innerHTML = '';
+            
+            order.items.forEach(item => {
+                const row = document.createElement('tr');
+                // Se usa parseFloat para asegurar que la multiplicación sea numérica
+                const subtotal = parseFloat(item.price) * item.quantity; 
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${parseFloat(item.price).toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${subtotal.toFixed(2)}</td>
+                `;
+                productsTable.appendChild(row);
+            });
+        }
         
-        order.items.forEach(item => {
-        // ✅ CORRECCIÓN DE PRECIO Y CÁLCULO
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${item.name}</td>
-            <td>$${parseFloat(item.price).toFixed(2)}</td>
-            <td>${item.quantity}</td>
-            <td>$${(parseFloat(item.price) * item.quantity).toFixed(2)}</td>
-        `;
-        productsTable.appendChild(row);
-        });
-        
-        // Actualizar línea de tiempo de estado
+        // --- Actualizar línea de tiempo de estado ---
         updateStatusTimeline(order.status);
         
         // Mostrar detalles
-        orderDetails.style.display = 'block';
+        if (orderDetails) {
+             orderDetails.style.display = 'block';
+        }
     }
     
     function updateStatusTimeline(status) {
@@ -213,7 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'delivered': 'Entregado'
         };
 
-        document.getElementById('current-status-text').textContent = statusMap[status] || 'Desconocido';
+        // El ID 'current-status-text' debe existir
+        const currentStatusTextElement = document.getElementById('current-status-text');
+        if (currentStatusTextElement) {
+            currentStatusTextElement.textContent = statusMap[status] || 'Desconocido';
+        }
         
         // Resetear todos los estados
         document.querySelectorAll('.timeline-step').forEach(step => {
@@ -226,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Marcar todos los estados hasta el actual como completados
         for (let i = 0; i <= currentStatusIndex; i++) {
+            // El selector debe usar data-status, no la clase directamente.
             const stepElement = document.querySelector(`.timeline-step[data-status="${statusOrder[i]}"]`);
             if (stepElement) {
                 if (i < currentStatusIndex) {
@@ -237,4 +273,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
- 
